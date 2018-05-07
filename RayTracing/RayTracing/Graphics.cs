@@ -81,8 +81,8 @@ namespace RayTracing
             }
             using (StreamReader sr = new StreamReader(filename))
             {
-                Console.WriteLine(GL.GetShaderInfoLog(addres));
                 GL.ShaderSource(addres, sr.ReadToEnd());
+                Console.WriteLine(GL.GetShaderInfoLog(addres));
             }
             GL.CompileShader(addres);
             GL.AttachShader(program, addres);
@@ -93,8 +93,8 @@ namespace RayTracing
         {
             //Создание программы
             BasicProgramID = GL.CreateProgram();
-            loadShader("..\\..\\basic.vert", ShaderType.VertexShader, BasicProgramID, out BasicVertexShader);
-            loadShader("..\\..\\basic.frag", ShaderType.FragmentShader, BasicProgramID, out BasicFragmentShader);
+            loadShader("..\\..\\basic.vert.txt", ShaderType.VertexShader, BasicProgramID, out BasicVertexShader);
+            loadShader("..\\..\\basic.frag.txt", ShaderType.FragmentShader, BasicProgramID, out BasicFragmentShader);
 
             //Линковка программы
             GL.LinkProgram(BasicProgramID);
