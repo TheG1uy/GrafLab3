@@ -12,23 +12,28 @@ namespace RayTracing
     public partial class Form1 : Form
     {
         Graphics gr;
+        RayTracing scene;
         public Form1()
         {
             InitializeComponent();
             gr = new Graphics();
+            scene = new RayTracing();
         }
 
         
 private void glControl1_Paint(object sender, PaintEventArgs e)
         {
-            gr.Update();
+            // gr.Update();
+            scene.Update();
             glControl1.SwapBuffers();
-            gr.closeProgram();
+            //gr.closeProgram();
+            scene.closeProgram();
         }
 
         private void glControl1_Load(object sender, EventArgs e)
         {
-            gr.Resize(glControl1.Width, glControl1.Height);
+            scene.Resize(glControl1.Width, glControl1.Height);
+            //gr.Resize(glControl1.Width, glControl1.Height);
         }
     }
 }
