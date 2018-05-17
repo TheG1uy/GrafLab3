@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
 
 namespace RayTracing
 {
@@ -21,7 +23,7 @@ namespace RayTracing
         }
 
         
-private void glControl1_Paint(object sender, PaintEventArgs e)
+        private void glControl1_Paint(object sender, PaintEventArgs e)
         {
             // gr.Update();
             scene.Update();
@@ -29,11 +31,18 @@ private void glControl1_Paint(object sender, PaintEventArgs e)
             //gr.closeProgram();
             scene.closeProgram();
         }
-
+        private void Application_Idle(object sender, PaintEventArgs e)
+        {
+            
+                glControl1_Paint(sender, e);
+            
+        }
         private void glControl1_Load(object sender, EventArgs e)
         {
             scene.Resize(glControl1.Width, glControl1.Height);
             //gr.Resize(glControl1.Width, glControl1.Height);
         }
+
+
     }
 }

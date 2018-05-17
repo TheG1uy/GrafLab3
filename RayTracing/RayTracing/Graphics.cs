@@ -45,6 +45,7 @@ namespace RayTracing
             Render();
         }
 
+
         public void DrawTriangle()
         {
             /*
